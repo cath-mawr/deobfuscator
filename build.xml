@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project name="Deobfuscator" default="run">
+	<target name="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin"
+		    classpath="lib/asm-debug-all-5.0.1.jar"
+		    debug="true" />
+	</target>
+	<target name="run" depends="compile">
+		<java classname="deob.Main"
+		    classpath="bin:lib/asm-debug-all-5.0.1.jar" />
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+</project>
